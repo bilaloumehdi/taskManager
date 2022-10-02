@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="edit-container">
+        <h1> Edit Task</h1>
+        <form>
+            <label for="id"> <span>Task ID</span>
+                <input type="text" id="id" disabled>
+            </label>
+
+            <label for="name"><span>Task</span> 
+                <input type="text" id="name" >
+            </label>
+            
+            <label for="completed"><span> completed</span>
+                <input type="checkbox" id="completed">
+            </label>
+            
+            <input type="submit" value="Edit" class="btn" id="edit">
+            <span id="submit-msg"></span>
+        </form>
+
+        
+    </div>
+    <div class="back-task">
+        <button >
+            back To Tasks 
+        </button>
+    </div>
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script src="edit-task.js"></script>
+</body>
+</html>

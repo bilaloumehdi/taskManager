@@ -1,0 +1,313 @@
+*,
+::after,
+::before {
+    margin:0 ;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+:root{
+    /* colors */
+    /* --primary :#5F9EA0;
+    --primary-1 :#3dc3c7; */
+    
+    --primary :#FF6347;
+    --primary-1 :#f05c42;
+    /*  white  */
+    --white : #fff ;
+    --white-3 :rgb(223, 218, 218) ;
+
+    /* grey */
+    --grey-1:rgb(241, 237, 237) ;
+    --grey-2:rgb(241, 237, 237) ;
+
+    /* font */
+        --fs-1: 2rem ;
+        --ff-1 : 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    /* box -shadows*/
+    --shadow-1 : 0 1px 3px 0  rgba(0,0,0,0.1) ;
+    --shadow-2 :  0 4px 6px -1px rgba(0, 0, 0, 0.1) ;
+        
+    /* border-raduis */
+        --brs-1: 5px ;
+        --brs-2 : 20px ;
+        --cercle:50%;
+
+        --error-color: rgb(223, 54, 36);
+
+}
+body {
+    background-color: var(--white-3);
+}
+
+/* task Manager - container */
+
+.container {
+    width: 80%;
+    max-width:500px;
+    min-height: 150px ;
+    background-color: var(--white); 
+    box-shadow: var(--shadow-1);
+    border-radius: var(--brs-1);
+
+    text-align: center;
+    padding: 3px;
+    margin: 10vh auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+h1 ,h2 {
+    margin-top: 5px;
+    font-size: var(--fs-1);
+    font-family: var(--ff-1);
+    /* font-weight: 50px; */
+}
+
+h5{
+    margin: auto;
+    text-align: center;
+    font-size: 2rem ;
+    color: var(--primary-1);
+}
+
+/* form */
+.container form {
+    width:100% ;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 5px;
+
+}
+
+#submit-msg {
+    color:var(--error-color);
+}
+.success-text {
+    color: var(--primary);
+}
+
+input  {
+    padding: 10px;
+    border: none;
+    border-radius: var(--brs-1);
+    outline: none;
+    box-shadow: var(--shadow-1);
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    background-color: var(--grey-1);
+}
+
+::placeholder {
+    color: var(--white-1);
+    
+}
+input[type="text"]:focus {
+    border: 1.5px solid var(--primary);
+    transition: 0.8s all ;
+    box-shadow: var(--shadow-2);
+}
+.btn {
+    cursor: pointer;
+    border: #fff;
+    border-radius: var(--brs-1);
+    background: var(--primary-1);
+    
+    color: var(--white);
+}
+.btn:hover {
+    background-color: var(--primary);
+    transition: 1s all;
+}
+
+/* message */
+.container span {
+    text-align: start;
+    margin-left: 5px;
+    display: block;
+}
+
+/* tasks */
+.tasks-container {
+    width: 80%;
+    max-width:500px;
+    min-height: 150px ;
+    background-color: var(--white); 
+    box-shadow: var(--shadow-1);
+    border-radius: var(--brs-1);
+    padding: 10px;
+    margin: 10vh auto;
+    display: flex;
+    flex-direction: column;
+    gap:10px ;
+    box-shadow: var(--shadow-2);
+}
+
+.task {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-1);
+    border-radius: var(--brs-1);
+    /* background: rgb(200, 191, 191); */
+    background: var(--white-3);
+
+}
+.task:hover{
+    
+    box-shadow: var(--shadow-2);
+}
+p {
+    font-size: large;
+
+}
+
+
+.task-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px ;
+}
+.completed-true {
+    text-decoration: line-through;
+}
+.completed-false {
+    text-decoration: none;
+}
+/* checkbox */
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border: 1.5px solid var(--primary-1);
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+input[type="checkbox"]::before{
+    content: "";
+    
+    width: 0.7em;
+    height: 0.7em;
+    
+    background-color: var(--primary);
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+
+}
+input[type="checkbox"]:checked {
+    border-radius: var(--cercle);
+    transition: 120ms transform ease-in-out;
+}
+
+input[type="checkbox"]:checked::before{
+    transform-origin:bottom left ;
+    transform: scale(1);
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+
+
+
+.edit-link svg,.delete-btn svg{
+    width: 15px;
+    cursor: pointer;
+}
+.delete-btn {
+    background-color: transparent;
+    border-color:transparent;
+    
+}
+
+@media screen and (max-width: 320px){
+    form {
+        flex-direction: column;
+        text-align: center;
+    }
+    .task {
+        flex-direction: column;
+        gap: 10px;
+    }
+    p {
+        text-align: center;
+    }
+
+}
+
+/* edit Task */
+.edit-container {
+    width: 80%;
+    max-width:500px;
+    min-height: 150px ;
+    background-color: var(--white); 
+    box-shadow: var(--shadow-1);
+    border-radius: var(--brs-1);
+
+    text-align: center;
+    padding: 3px;
+    margin: 10vh auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.edit-container form {
+    width:100% ;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    gap: 20px;
+    padding: 5px;
+}
+
+.edit-container label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+.edit-container form label span {
+    width: 100px ;
+}
+
+@media screen and (max-width:430px) {
+    .edit-container form label {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+
+}
+
+/* back to Tasks */
+.back-task {
+    width: 100%;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-task button {
+    text-align: center;
+    padding:10px ;
+    width: 300px;
+
+    color: var(--white);
+    border: none; 
+    border-radius: var(--brs-1);
+    background-color: var(--primary);
+    box-shadow: var(--shadow-1);
+    cursor: pointer;
+}
+
+
